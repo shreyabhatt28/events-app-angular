@@ -1,0 +1,7 @@
+{
+  "name": "eventsAppIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
