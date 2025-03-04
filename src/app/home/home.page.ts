@@ -1,10 +1,11 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { IonHeader, IonList,IonListHeader, IonToolbar, IonLabel, IonContent, IonItem, IonIcon, IonText, IonFabButton,IonBadge, IonRow, IonCol, IonSearchbar, IonicSlides } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { locateOutline, locationOutline, notificationsOutline, optionsOutline } from 'ionicons/icons';
+import { arrowForwardOutline, locateOutline, locationOutline, notificationsOutline, optionsOutline } from 'ionicons/icons';
 import { Category } from '../interfaces/category.interface';
 import { Event } from '../interfaces/event.interface';
 import { events } from '../data/events';
+import { categories } from '../data/categories';
 import { RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
@@ -23,9 +24,11 @@ export class HomePage implements OnInit{
 
   ngOnInit(): void {
     this.upcomingEvents = [...events];
+    this.categories = [...categories];
+    this.currentEvents = [...events];
   }
   
   constructor() {
-    addIcons({ locateOutline, notificationsOutline, optionsOutline, locationOutline })
+    addIcons({ locateOutline, notificationsOutline, optionsOutline, locationOutline, arrowForwardOutline })
   }
 }

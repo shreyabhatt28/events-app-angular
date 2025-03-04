@@ -64,4 +64,68 @@
   }
   </swiper-container>
 </ion-list>
+
+<ion-list class="ion-margin-top">
+<ion-item-divider mode="ios" color="light">
+Top Picks
+<img src="assets/imgs/fire.png">
+<ion-button
+slot="end"
+fill="clear"
+color="medium">
+View All
+</ion-button>
+</ion-item-divider>
+
+<swiper-container
+  #category
+  [modules]="swiperModules"
+  [slidesPerView]='2.5'
+  keyboard="true"
+  [centerSlides]="true">
+    <swiper-slide>
+      <ion-card class="category">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <ion-img [src]="'assets/imgs/all.png'"></ion-img>
+          </ion-avatar>
+          <ion-label>All</ion-label>
+        </ion-item>
+      </ion-card>
+    </swiper-slide>
+
+    @for(item of categories; track $index){
+      <swiper-slide>
+        <ion-card class="category">
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <ion-img [src]="item.image"></ion-img>
+            </ion-avatar>
+            <ion-label>{{item.name}}</ion-label>
+          </ion-item>
+        </ion-card>
+      </swiper-slide>
+    }
+  </swiper-container>
+</ion-list>
+
+@for(event of currentEvents; track $index){
+  <ion-card
+  [routerLink]="['/', 'home', 'events', event?.id]"
+  class="event2"
+  [style.backgroundImage]="'url('+event.image+')'">
+<ion-item lines="none">
+  <ion-label>
+    {{event?.date | date: 'MMM d, y'}}
+    <p>
+      {{event?.name}}
+    </p>
+  </ion-label>
+
+  <ion-fab-button slot="end" size="small">
+    <ion-icon name="arrow-forward-outline"></ion-icon>
+  </ion-fab-button>
+</ion-item>
+</ion-card>
+}
 </ion-content>

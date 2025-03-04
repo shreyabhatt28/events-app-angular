@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true" color="medium">
+  <ion-header class="ion-no-border" slot="fixed">
+    <ion-toolbar>
+      <ion-buttons slot="start" mode="md">
+        <ion-back-button color="light" defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="bg-container">
+    <div class="bg"
+    [style.backgroundImage] = "'url(' + event.image +')'">
+    </div>
+  </div>
+
+  <ion-item color="light" lines="none">
+    <ion-label class="eventInfo">
+      {{event.name}}
+      <ion-row>
+        <ion-col>
+          <ion-icon name="calendar-outline"></ion-icon>
+          {{event.date | date : 'MMM d, y'}}
+          <ion-icon class="loc" name="location-outline"></ion-icon>
+          {{event.location}}
+        </ion-col>
+      </ion-row>
+    </ion-label>
+
+    <div slot="end" align="center">
+      <ion-label color="primary">$45</ion-label>
+      <p>256 seats available</p>
+    </div>
+  </ion-item>
+
+</ion-content>
